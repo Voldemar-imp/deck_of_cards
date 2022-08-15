@@ -35,8 +35,6 @@ namespace deck_of_cards
                         break;
                     case '4':
                         isPlaying = false;
-                        Console.WriteLine("Благодарим за игру");
-                        player.ShowInfo();
                         break;
                         default: 
                         Console.WriteLine("Неверно выбрана команда");
@@ -46,11 +44,13 @@ namespace deck_of_cards
                 if (deck.IsDeckEmpty())
                 {                    
                     isPlaying = false;
-                    player.ShowInfo();
                 }
 
                 Console.ReadKey(true);
             }
+
+            Console.WriteLine("Благодарим за игру");
+            player.ShowInfo();
         }
 
     }
