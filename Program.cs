@@ -25,20 +25,17 @@ namespace deck_of_cards
                 switch (key.KeyChar)
                 {
                     case '1':
-                        player.GetCard(deck.GiveGardAway());
-                        Console.WriteLine("Вы взяли карту");
+                        player.AddCard(deck.GiveGardAway());                        
                         break;
                     case '2':
-                        deck.ShuffleDeck();
-                        Console.WriteLine("Колода перемешана");
+                        deck.Shuffle();                        
                         break;
-                    case '3':
-                        Console.WriteLine("У вас в руках сейчас:");
+                    case '3':                        
                         player.ShowInfo();
                         break;
                     case '4':
                         isPlaying = false;
-                        Console.WriteLine("Благодарим за игру \nУ вас в руках сейчас:");
+                        Console.WriteLine("Благодарим за игру");
                         player.ShowInfo();
                         break;
                         default: 
@@ -47,10 +44,8 @@ namespace deck_of_cards
                 }
 
                 if (deck.IsDeckEmpty())
-                {
-                    Console.WriteLine("В колоде закончились карты");
+                {                    
                     isPlaying = false;
-                    Console.WriteLine("У вас в руках сейчас:");
                     player.ShowInfo();
                 }
 
@@ -69,13 +64,16 @@ namespace deck_of_cards
             _playerCards = new List<Card>(0);
         }
 
-        public void GetCard(Card card)
+        public void AddCard(Card card)
         {
             _playerCards.Add (card);
+            Console.WriteLine("Вы взяли карту");
         }
 
         public void ShowInfo()
         {
+            Console.WriteLine("У вас в руках сейчас:");
+
             foreach (Card card in _playerCards)
             {
                 Console.WriteLine(card.CardName + " " + card.Suit);
@@ -104,7 +102,7 @@ namespace deck_of_cards
             }
         }
 
-        public void ShuffleDeck()
+        public void Shuffle()
         {
             Random random = new Random();
 
@@ -115,12 +113,15 @@ namespace deck_of_cards
                 _deck[i] = _deck[shuffleIndex];
                 _deck[shuffleIndex] = swappCard;
             }
+
+            Console.WriteLine("Колода перемешана");
         }
 
         public bool IsDeckEmpty()
         {
             if (_deck.Count == 0)
             {
+                Console.WriteLine("В колоде закончились карты");
                 return true;
             }
             else
