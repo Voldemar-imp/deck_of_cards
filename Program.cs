@@ -52,20 +52,21 @@ namespace deck_of_cards
             Console.WriteLine("Благодарим за игру");
             player.ShowInfo();
         }
+
     }
 
     class Player
     {
-        private List<Card> _playerCards = new List<Card>();
+        private List<Card> _сards = new List<Card>();
 
         public Player()
         {
-            _playerCards = new List<Card>(0);
+            _сards = new List<Card>(0);
         }
 
         public void AddCard(Card card)
         {
-            _playerCards.Add (card);
+            _сards.Add (card);
             Console.WriteLine("Вы взяли карту");
         }
 
@@ -73,7 +74,7 @@ namespace deck_of_cards
         {
             Console.WriteLine("У вас в руках сейчас:");
 
-            foreach (Card card in _playerCards)
+            foreach (Card card in _сards)
             {
                 Console.WriteLine(card.CardName + " " + card.Suit);
             }
@@ -85,6 +86,7 @@ namespace deck_of_cards
         private List<Card> _deck = new List<Card>();
         private List<string> _cardsName = new List<string>();
         private List<string> _suits = new List<string>();
+
         
         public Deck()
         {
