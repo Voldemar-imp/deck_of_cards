@@ -52,7 +52,6 @@ namespace deck_of_cards
             Console.WriteLine("Благодарим за игру");
             player.ShowInfo();
         }
-
     }
 
     class Player
@@ -86,7 +85,6 @@ namespace deck_of_cards
         private List<Card> _deck = new List<Card>();
         private List<string> _cardsName = new List<string>();
         private List<string> _suits = new List<string>();
-
         
         public Deck()
         {
